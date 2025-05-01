@@ -52,3 +52,4 @@ echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 source /opt/ros/humble/setup.bash
 
 echo "✅ ROS 2 Humble installation and environment setup complete!"
+
