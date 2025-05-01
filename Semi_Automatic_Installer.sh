@@ -2,6 +2,11 @@
 
 set -e  # Exit on error
 
+echo "🤖 Step 5: Choose the ROS 2 Humble installation type:"
+echo "1) ros-humble-ros-base (recommended for robots/headless systems)"
+echo "2) ros-humble-desktop (includes Rviz, Gazebo, etc.)"
+read -p "Enter choice [1 or 2]: " choice
+
 echo "📦 Step 1: Setting system locale to UTF-8..."
 sudo apt update && sudo apt install -y locales
 sudo locale-gen en_US en_US.UTF-8
@@ -24,19 +29,15 @@ echo "🔄 Step 4: Updating and upgrading system..."
 sudo apt update
 sudo apt upgrade -y
 
-echo "🤖 Step 5: Choose the ROS 2 Humble installation type:"
-echo "1) ros-humble-ros-base (recommended for robots/headless systems)"
-echo "2) ros-humble-desktop (includes Rviz, Gazebo, etc.)"
-read -p "Enter choice [1 or 2]: " choice
 
 case $choice in
   1)
     echo "Installing ros-humble-ros-base..."
-    sudo apt install -y ros-humble-ros-base
+    sudo apt install ros-humble-ros-base
     ;;
   2)
     echo "Installing ros-humble-desktop..."
-    sudo apt install -y ros-humble-desktop
+    sudo apt install ros-humble-desktop
     ;;
   *)
     echo "❌ Invalid choice. Exiting."
